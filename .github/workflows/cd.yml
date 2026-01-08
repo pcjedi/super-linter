@@ -2,8 +2,6 @@ name: Publish Images
 
 on:
   push:
-    branches:
-      - main
 
 # Don't grant any access by default
 permissions: {}
