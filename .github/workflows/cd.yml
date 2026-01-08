@@ -329,7 +329,8 @@ jobs:
           dst: |
             ghcr.io/super-linter/super-linter:slim-${{ env.SEMVER_MAJOR_VERSION }}
             ghcr.io/super-linter/super-linter:slim-${{ env.RELEASE_VERSION }}
-
+      - run: docker run -it --rm -a stdout --entrypoint cat ghcr.io/super-linter/super-linter:${{ env.RELEASE_VERSION }} /action/linterVersions.txt
+        if: steps.release.outputs.release_created
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
